@@ -27,7 +27,7 @@ Kubernetes architecture: the master
      
    - etcd (a highly available key/value store; the “database” of Kubernetes)
 
-*Together, these services form what is called the “master”
+# Together, these services form what is called the “master”
 
    - These services can run straight on a host, or in containers (that’s an implementation detail)
 
@@ -39,11 +39,11 @@ Kubernetes architecture: the master
 
     The nodes executing our containers run another collection of services:
     
-    - a container Engine (typically Docker)
+   - a container Engine (typically Docker)
     
-    - kubelet (the “node agent”)
+   - kubelet (the “node agent”)
     
-    - kube-proxy (a necessary but not sufficient network component)
+   - kube-proxy (a necessary but not sufficient network component)
 
     Nodes were formerly called “minions”
 
@@ -53,26 +53,31 @@ Kubernetes resources
 
     The Kubernetes API defines a lot of objects called resources
 
-    These resources are organized by type, or Kind (in the API)
+# These resources are organized by type, or Kind (in the API)
 
     A few common resource types are:
-        * node (a machine — physical or virtual — in our cluster)
-        * pod (group of containers running together on a node)
-        * service (stable network endpoint to connect to one or multiple containers)
-        * namespace (more-or-less isolated group of things)
-        * secret (bundle of sensitive data to be passed to a container)
+    
+   - node (a machine — physical or virtual — in our cluster)
+    
+   - pod (group of containers running together on a node)
+    
+   - service (stable network endpoint to connect to one or multiple containers)
+    
+   -  namespace (more-or-less isolated group of things)
+   
+   - secret (bundle of sensitive data to be passed to a container)
 
     And much more! (We can see the full list by running kubectl get)
 
-Declarative vs imperative
+# Declarative vs imperative
 
-    Our container orchestrator puts a very strong emphasis on being declarative
+   - Our container orchestrator puts a very strong emphasis on being declarative
 
-    Declarative:
+   # Declarative:
 
     I would like a cup of tea.
 
-    Imperative:
+   # Imperative:
 
     Boil some water. Pour it in a teapot. Add tea leaves. Steep for a while. Serve in cup.
 
