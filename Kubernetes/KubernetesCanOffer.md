@@ -173,25 +173,25 @@ Summary of declarative vs imperative
 
     kube-proxy is on the data path when connecting to a pod or container, and it’s not particularly fast (relies on userland proxying or iptables)
 
-Kubernetes network model: in practice
+# Kubernetes network model: in practice
 
-    The nodes that we are using have been set up to use Weave
+   - The nodes that we are using have been set up to use Weave
 
-    We don’t endorse Weave in a particular way, it just Works For Us
+   - We don’t endorse Weave in a particular way, it just Works For Us
 
-    Don’t worry about the warning about kube-proxy performance
+   - Don’t worry about the warning about kube-proxy performance
 
     Unless you:
 
-        routinely saturate 10G network interfaces
+   -   routinely saturate 10G network interfaces
 
-        count packet rates in millions per second
+   =   count packet rates in millions per second
 
-        run high-traffic VOIP or gaming platforms
+   -    run high-traffic VOIP or gaming platforms
 
-        do weird things that involve millions of simultaneous connections (in which case you’re already familiar with kernel tuning)
+   -    do weird things that involve millions of simultaneous connections (in which case you’re already familiar with kernel tuning)
 
-First contact with kubectl
+# First contact with kubectl
 
     kubectl is (almost) the only tool we’ll need to talk to Kubernetes
 
@@ -203,7 +203,7 @@ First contact with kubectl
 
     kubectl can be pronounced “Cube C T L”, “Cube cuttle”, “Cube cuddle”…
 
-kubectl get
+# kubectl get
 
     Let’s look at our Node resources with kubectl get!
 
@@ -213,9 +213,9 @@ kubectl get
 
     These commands are equivalent
 
-    kubectl get no
-    kubectl get node
-    kubectl get nodes
+   - kubectl get no
+   - kubectl get node
+   - kubectl get nodes
 
 Obtaining machine-readable output
 
