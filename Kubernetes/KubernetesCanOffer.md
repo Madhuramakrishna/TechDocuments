@@ -340,7 +340,7 @@ Accessing namespaces
 
    - the pods with a name ending with -node1 are the master components (they have been specifically “pinned” to the master node)
 
-# Running our first containers on Kubernetes
+#### Running our first containers on Kubernetes
 
    - First things first: we cannot run a container
 
@@ -350,7 +350,7 @@ Accessing namespaces
 
    - Then we are going to start additional copies of the pod
 
-# Starting a simple pod with kubectl run
+#### Starting a simple pod with kubectl run
 
     We need to specify at least a name and the image we want to use
 
@@ -360,7 +360,7 @@ Accessing namespaces
 
     OK, what just happened?
 
-# Behind the scenes of kubectl run
+#### Behind the scenes of kubectl run
 
     Let’s look at the resources that were created by kubectl run
 
@@ -374,7 +374,7 @@ We should see the following things:
   -  rs/pingpong-xxxx (a replica set created by the deployment)
   -  po/pingpong-yyyy (a pod created by the replica set)
 
-# What are these different things?
+#### What are these different things?
 
     A deployment is a high-level construct
 
@@ -384,7 +384,7 @@ We should see the following things:
 
    - delegates pods management to replica sets
 
-    A replica set is a low-level construct
+#### A replica set is a low-level construct
 
    -  makes sure that a given number of identical pods are running
 
@@ -394,7 +394,7 @@ We should see the following things:
 
     A replication controller is the (deprecated) predecessor of a replica set
 
-# Our pingpong deployment
+#### Our pingpong deployment
 
     kubectl run created a deployment, deploy/pingpong
 
@@ -404,13 +404,13 @@ We should see the following things:
 
     We’ll see later how these folks play together for:
 
-   - scaling
+   -   scaling
 
-        high availability
+   -  high availability
 
-        rolling updates
+   -  rolling updates
 
-Viewing container output
+#### Viewing container output
 
     Let’s use the kubectl logs command
 
@@ -422,7 +422,7 @@ Viewing container output
 
     kubectl logs deploy/pingpong
 
-Streaming logs in real time
+#### Streaming logs in real time
 
     Just like docker logs, kubectl logs supports convenient options:
 
@@ -436,7 +436,7 @@ Streaming logs in real time
 
     kubectl logs deploy/pingpong --tail 1 --follow
 
-Scaling our application
+#### Scaling our application
 
     We can create additional copies of our container (or rather our pod) with kubectl scale
 
@@ -446,7 +446,7 @@ Scaling our application
 
     Note: what if we tried to scale rs/pingpong-xxxx? We could! But the deployment would notice it right away, and scale back to the initial level.
 
-Resilience
+#### Resilience
 
     The deployment pingpong watches its replica set
 
@@ -462,7 +462,7 @@ Resilience
 
     kubectl delete pod pingpong-yyyy
 
-What if we wanted something different?
+#### What if we wanted something different?
 
     What if we wanted to start a “one-shot” container that doesn’t get restarted?
 
@@ -476,7 +476,7 @@ What if we wanted something different?
 
     With kubectl run --schedule=…, we can also create cronjobs
 
-Viewing logs of multiple pods
+#### Viewing logs of multiple pods
 
     When we specify a deployment name, only one single pod’s logs are shown
 
@@ -492,13 +492,13 @@ Viewing logs of multiple pods
 
     Unfortunately, --follow cannot (yet) be used to stream the logs from multiple containers.
 
-Clean-up
+#### Clean-up
 
     Clean up your deployment by deleting pingpong
 
     kubectl delete deploy/pingpong
 
-Exposing containers
+#### Exposing containers
 
     kubectl expose creates a service for existing pods
 
@@ -534,7 +534,7 @@ More service types
         the DNS entry managed by kube-dns will just be a CNAME to a provided record
         no port, no IP address, no nothing else is allocated
 
-Running containers with open ports
+#### Running containers with open ports
 
     Since ping doesn’t have anything to connect to, we’ll have to run something else
     Start a bunch of ElasticSearch containers:
@@ -560,7 +560,7 @@ Exposing our deployment
 
     kubectl get svc
 
-Services are layer 4 constructs
+#### Services are layer 4 constructs
 
     You can assign IP addresses to services, but they are still layer 4 (i.e. a service is not an IP address; it’s an IP address + protocol + port)
 
@@ -570,7 +570,7 @@ Services are layer 4 constructs
 
     Running services with arbitrary port (or port ranges) requires hacks (e.g. host networking mode)
 
-Testing our service
+#### Testing our service
 
     We will now send a few HTTP requests to our ElasticSearch pods
 
@@ -589,7 +589,7 @@ Clean up
 
     kubectl delete deploy/elastic
 
-Our app on Kube
+#### Our app on Kube
 What’s on the menu?
 
 In this part, we will:
@@ -604,7 +604,7 @@ In this part, we will:
 
     expose the web UI so we can access it from outside.
 
-The plan
+#### The plan
 
     Build on our control node (node1)
 
@@ -618,7 +618,7 @@ The plan
 
     Expose (with a NodePort) the WebUI
 
-Setup
+#### Setup
 
     In the first terminal, set an environment variable for your Docker Hub user name. It can be the same Docker Hub user name that you used to log in to the terminals on this site.
 
@@ -628,7 +628,7 @@ Setup
 
     pwd
 
-A note on registries
+#### A note on registries
 
     For this workshop, we’ll use Docker Hub. There are a number of other options, including two provided by Docker.
 
@@ -636,7 +636,7 @@ A note on registries
         Docker Trusted Registry which adds in a lot of security and deployment features including security scanning, and role-based access control.
         Docker Open Source Registry.
 
-Docker Hub
+#### Docker Hub
 
     Docker Hub is the default registry for Docker.
 
@@ -652,7 +652,7 @@ Docker Hub
 
         Login using docker login $REGISTRYPATH.
 
-Building and pushing our images
+#### Building and pushing our images
 
     We are going to use a convenient feature of Docker Compose
 
@@ -687,7 +687,7 @@ services:
 
     Just in case you were wondering … Docker “services” are not Kubernetes “services”.
 
-Deploying all the things
+#### Deploying all the things
 
     We can now deploy our code (as well as a redis instance)
 
@@ -701,7 +701,7 @@ Deploying all the things
       kubectl run $SERVICE --image=$USERNAME/$SERVICE -l app=$SERVICE
     done
 
-Is this working?
+#### Is this working?
 
     After waiting for the deployment to complete, let’s look at the logs!
 
@@ -730,7 +730,7 @@ Exposing services internally
     kubectl expose deployment rng --port 80
     kubectl expose deployment hasher --port 80
 
-Is this working yet?
+#### Is this working yet?
 
     The worker has an infinite loop, that retries 10 seconds after an error
 
@@ -738,11 +738,11 @@ Is this working yet?
 
     kubectl logs deploy/worker --follow
 
-(Give it about 10 seconds to recover)
+#### (Give it about 10 seconds to recover)
 
     We should now see the worker, well, working happily.
 
-Exposing services for external access
+#### Exposing services for external access
 
     Now we would like to access the Web UI
 
@@ -756,7 +756,7 @@ Exposing services for external access
 
     kubectl get svc
 
-Accessing the web UI
+#### Accessing the web UI
 
     We can now connect to any node, on the allocated node port, to view the web UI
 
@@ -795,7 +795,7 @@ kubectl apply is the new curl | sh
 
     Example: the official setup instructions for most pod networks
 
-Scaling a deployment
+#### Scaling a deployment
 
     We will start with an easy one: the worker deployment
 
@@ -826,7 +826,7 @@ Daemon sets
 
     They can also be restricted to run only on some nodes.
 
-Creating a daemon set
+#### Creating a daemon set
 
     Unfortunately, as of Kubernetes 1.9, the CLI cannot create daemon sets
 
@@ -840,7 +840,7 @@ Creating a daemon set
         option 1: read the docs
         option 2: vi our way out of it
 
-Creating the YAML file for our daemon set
+#### Creating the YAML file for our daemon set
 
     Let’s start with the YAML file for the current rng resource
 
@@ -869,7 +869,7 @@ Try to create our new resource:
 
     We all knew this couldn’t be that easy, right!
 
-Understanding the problem
+#### Understanding the problem
 
     The core of the error is:
 
@@ -887,7 +887,7 @@ Understanding the problem
 
     Or, we could also …
 
-Use the --force, Luke
+#### Use the --force, Luke
 
     We could also tell Kubernetes to ignore these errors and try anyway
 
@@ -903,7 +903,7 @@ The –force flag actual name is –validate=false
 
 Try to load our YAML file and ignore errors: kubectl apply -f rng.yml –validate=false 🎩✨🐇
 
-Wait … Now, can it be that easy?
+#### Wait … Now, can it be that easy?
 Checking what we’ve done
 
     Did we transform our deployment into a daemonset?
@@ -927,7 +927,7 @@ Explanation
         one pod for the deployment
         one pod per node for the daemonset
 
-What are all these pods doing?
+#### What are all these pods doing?
 
     Let’s check the logs of all these rng pods
 
@@ -943,7 +943,7 @@ What are all these pods doing?
 
     It appears that all the pods are serving requests at the moment.
 
-Removing the first pod from the load balancer
+#### Removing the first pod from the load balancer
 
     What would happen if we removed that pod, with kubectl delete pod ...?
 
@@ -959,7 +959,7 @@ Removing the first pod from the load balancer
 
     The answer lies in the exact selector used by the replicaset …
 
-Deep dive into selectors
+#### Deep dive into selectors
 
     Let’s look at the selectors for the rng deployment and the associated replica set
 
@@ -973,7 +973,7 @@ Deep dive into selectors
 
     The replica set selector also has a pod-template-hash, unlike the pods in our daemon set.
 
-Updating a service through labels and selectors
+#### Updating a service through labels and selectors
 
     What if we want to drop the rng deployment from the load balancer?
 
@@ -1010,7 +1010,7 @@ We’ve put resources in your resources
 
     The template must match the selector (i.e. the resource will refuse to create resources that it will not select)
 
-Adding our label
+#### Adding our label
 
 Let’s add a label isactive: yes
 
@@ -1037,7 +1037,7 @@ In YAML, yes should be quoted; i.e. isactive: "yes"
 
     kubectl edit service rng
 
-Checking what we’ve done
+#### Checking what we’ve done
 
     Check the logs of all run=rng pods to confirm that only 2 of them are now active:
 
@@ -1049,13 +1049,13 @@ Checking what we’ve done
 
     kubectl get pods
 
-More labels, more selectors, more problems?
+#### More labels, more selectors, more problems?
 
     Bonus exercise 1: clean up the pods of the “old” daemon set
 
     Bonus exercise 2: how could we have done this to avoid creating new pods?
 
-Rolling updates
+#### Rolling updates
 
     By default (without rolling updates), when a scaled resource is updated:
         new pods are created
@@ -1076,7 +1076,7 @@ Rolling updates
 
     We have the possibility to rollback to the previous version (if the update fails or is unsatisfactory in any way)
 
-Rolling updates in practice
+#### Rolling updates in practice
 
     As of Kubernetes 1.8, we can do rolling updates with:
 
@@ -1086,7 +1086,7 @@ Rolling updates in practice
 
     Rolling updates can be monitored with the kubectl rollout subcommand
 
-Building a new version of the worker service
+#### Building a new version of the worker service
 
     Edit dockercoins/worker/worker.py, update the sleep line to sleep 1 second
 
@@ -1100,7 +1100,7 @@ Building a new version of the worker service
       docker-compose -f dockercoins.yml build
       docker-compose -f dockercoins.yml push
 
-Rolling out the new worker service
+#### Rolling out the new worker service
 
     Let’s monitor what’s going on by opening a few terminals, and run:
 
@@ -1114,7 +1114,7 @@ Rolling out the new worker service
 
     That rollout should be pretty quick. What shows in the web UI?
 
-Rolling out an error
+#### Rolling out an error
 
     What happens if we make a mistake?
 
@@ -1129,7 +1129,7 @@ Rolling out an error
 
     Our rollout is stuck. However, the app is not dead (just 10% slower).
 
-Recovering from a bad rollout
+#### Recovering from a bad rollout
 
     We could push some v0.3 image (the pod retry logic will eventually catch it and the rollout will proceed)
 
@@ -1140,7 +1140,7 @@ Recovering from a bad rollout
     kubectl rollout undo deploy worker
     kubectl rollout status deploy worker
 
-Changing rollout parameters
+#### Changing rollout parameters
 
     We want to:
         revert to v0.1 (which we now realize we didn’t tag - yikes!)
@@ -1162,7 +1162,7 @@ Changing rollout parameters
           maxSurge: 3
       minReadySeconds: 10
 
-Applying changes through a YAML patch
+#### Applying changes through a YAML patch
 
     We could use kubectl edit deployment worker
 
@@ -1189,7 +1189,7 @@ Next steps
 
 Alright, how do I get started and containerize my apps?
 
-Suggested containerization checklist:
+#### Suggested containerization checklist:
 
     write a Dockerfile for one service in one app
     write Dockerfiles for the other (buildable) services
@@ -1229,7 +1229,7 @@ Stateful services (databases etc.)
 
     Ambassador services (application-level proxies that can provide credentials injection and more)
 
-Stateful services (second take)
+#### Stateful services (second take)
 
     If you really want to host stateful services on Kubernetes, you can look into:
         volumes (to carry persistent data)
@@ -1237,7 +1237,7 @@ Stateful services (second take)
         persistent volume claims (to ask for specific volume characteristics)
         stateful sets (pods that are not ephemeral)
 
-HTTP traffic handling
+#### HTTP traffic handling
 
     Services are layer 4 constructs
 
@@ -1251,13 +1251,13 @@ HTTP traffic handling
         URI mapping
         and much more!
 
-Logging and metrics
+#### Logging and metrics
 
     Logging is delegated to the container engine
 
     Metrics are typically handled with Prometheus
 
-Managing the configuration of our applications
+#### Managing the configuration of our applications
 
     Two constructs are particularly useful: secrets and config maps
 
@@ -1267,20 +1267,20 @@ Managing the configuration of our applications
 
     Never store sensitive information in container images (It’s the container equivalent of the password on a post-it note on your screen)
 
-Cluster federation
+#### Cluster federation
 
-    Kubernetes master operation relies on etcd
+   - Kubernetes master operation relies on etcd
 
-    etcd uses the Raft protocol
+   - etcd uses the Raft protocol
 
-    Raft recommends low latency between nodes
+   - Raft recommends low latency between nodes
 
-    What if our cluster spreads to multiple regions?
+   - What if our cluster spreads to multiple regions?
 
-    Break it down in local clusters
+   - Break it down in local clusters
 
-    Regroup them in a cluster federation
+   - Regroup them in a cluster federation
 
-    Synchronize resources across clusters
+   - Synchronize resources across clusters
 
-    Discover resources across clusters
+   - Discover resources across clusters
