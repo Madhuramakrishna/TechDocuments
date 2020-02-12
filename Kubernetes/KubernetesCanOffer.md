@@ -85,7 +85,7 @@ Kubernetes resources
 
     … As long as you know how to brew tea
 
-What declarative would really be:
+# What declarative would really be:
 
 I want a cup of tea, obtained by pouring an infusion of tea leaves in a cup.
 
@@ -94,6 +94,7 @@ An infusion is obtained by letting the object steep a few minutes in hot water.
 Hot liquid is obtained by pouring it in an appropriate container and setting it on a stove.
 
 Ah, finally, containers! Something we know about. Let’s get to work, shall we?
+
 Summary of declarative vs imperative
 
     Imperative systems:
@@ -110,21 +111,21 @@ Summary of declarative vs imperative
 
         … and compute a “diff” between what we have and what we want
 
-Declarative vs imperative in Kubernetes
+# Declarative vs imperative in Kubernetes
 
-    Virtually everything we create in Kubernetes is created from a spec
+  - Virtually everything we create in Kubernetes is created from a spec
 
-    Watch for the spec fields in the YAML files later!
+  - Watch for the spec fields in the YAML files later!
 
-    The spec describes how we want the thing to be
+  - The spec describes how we want the thing to be
 
-    Kubernetes will reconcile the current state with the spec (technically, this is done by a number of controllers)
+  - Kubernetes will reconcile the current state with the spec (technically, this is done by a number of controllers)
 
-    When we want to change some resource, we update the spec
+  - When we want to change some resource, we update the spec
 
-    Kubernetes will then converge that resource
+  - Kubernetes will then converge that resource
 
-Kubernetes network model
+# Kubernetes network model
 
     TL,DR:
 
@@ -132,41 +133,41 @@ Kubernetes network model
 
     In detail:
 
-        all nodes must be able to reach each other, without NAT
+   - all nodes must be able to reach each other, without NAT
 
-        all pods must be able to reach each other, without NAT
+   - all pods must be able to reach each other, without NAT
 
-        pods and nodes must be able to reach each other, without NAT
+   - pods and nodes must be able to reach each other, without NAT
 
-        each pod is aware of its IP address (no NAT)
+   - each pod is aware of its IP address (no NAT)
 
-    Kubernetes doesn’t mandate any particular implementation
+   - Kubernetes doesn’t mandate any particular implementation
 
-Kubernetes network model: the good
+# Kubernetes network model: the good
 
-    Everything can reach everything
+  -  Everything can reach everything
 
-    No address translation
+  - No address translation
 
-    No port translation
+  - No port translation
 
-    No new protocol
+  - No new protocol
 
-    Pods cannot move from a node to another and keep their IP address
+  - Pods cannot move from a node to another and keep their IP address
 
-    IP addresses don’t have to be “portable” from a node to another (We can use e.g. a subnet per node and use a simple routed topology)
+   - IP addresses don’t have to be “portable” from a node to another (We can use e.g. a subnet per node and use a simple routed topology)
 
-    The specification is simple enough to allow many various implementations
+   - The specification is simple enough to allow many various implementations
 
-Kubernetes network model: the less good
+# Kubernetes network model: the less good
 
-    Everything can reach everything
+   - Everything can reach everything
 
-        if you want security, you need to add network policies
+   -  if you want security, you need to add network policies
 
-        the network implementation that you use needs to support them
+   -  the network implementation that you use needs to support them
 
-    There are literally dozens of implementations out there (15 are listed in the Kubernetes documentation)
+   - There are literally dozens of implementations out there (15 are listed in the Kubernetes documentation)
 
     It looks like you have a level 3 network, but it’s only level 4 (The spec requires UDP and TCP, but not port ranges or arbitrary IP packets)
 
