@@ -15,6 +15,7 @@ https://sysdig.com/blog/understanding-how-kubernetes-services-dns-work/
 
 
 Other things that Kubernetes can do for us
+--
 
     Basic autoscaling
 
