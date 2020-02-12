@@ -40,7 +40,6 @@ Kubernetes architecture: the master
     The nodes executing our containers run another collection of services:
     
    - a container Engine (typically Docker)
-    
    - kubelet (the “node agent”)
     
    - kube-proxy (a necessary but not sufficient network component)
@@ -49,7 +48,7 @@ Kubernetes architecture: the master
 
     It is customary to not run apps on the node(s) running master components (Except when using small development clusters)
 
-Kubernetes resources
+# Kubernetes resources
 
     The Kubernetes API defines a lot of objects called resources
 
@@ -217,17 +216,17 @@ Summary of declarative vs imperative
    - kubectl get node
    - kubectl get nodes
 
-Obtaining machine-readable output
+# Obtaining machine-readable output
 
     kubectl get can output JSON, YAML, or be directly formatted
 
     Give us more info about the nodes:
 
-    kubectl get nodes -o wide
+   - kubectl get nodes -o wide
 
     Let’s have some YAML:
 
-    kubectl get no -o yaml
+   - kubectl get no -o yaml
 
     See that kind: List at the end? It’s the type of our result!
 
@@ -237,22 +236,22 @@ Obtaining machine-readable output
 
     Show the capacity of all our nodes as a stream of JSON objects:
 
-    kubectl get nodes -o json |
+   - kubectl get nodes -o json |
           jq ".items[] | {name:.metadata.name} + .status.capacity"
 
-What’s available?
+# What’s available?
 
     kubectl has pretty good introspection facilities
 
     We can list all available resource types by running kubectl get
     We can view details about a resource with:
 
-    kubectl describe type/name
-    kubectl describe type name
+  -  kubectl describe type/name
+   - kubectl describe type name
 
     We can view the definition for a resource type with:
 
-    kubectl explain type
+   - kubectl explain type
 
 Each time, type can be singular, plural, or abbreviated type name.
 Services
@@ -261,11 +260,11 @@ Services
 
     List the services on our cluster:
 
-    kubectl get services
+   - kubectl get services
 
 This would also work:
 
-    kubectl get svc
+  -  kubectl get svc
 
 There is already one service on our cluster: the Kubernetes API itself.
 ClusterIP services
@@ -287,28 +286,28 @@ Listing running containers
 
     A pod is a group of containers:
 
-        running together (on the same node)
+   -  running together (on the same node)
 
-        sharing resources (RAM, CPU; but also network, volumes)
+   -  sharing resources (RAM, CPU; but also network, volumes)
 
     List pods on our cluster:
 
-    kubectl get pods
+   - kubectl get pods
 
     These are not the pods you’re looking for. But where are they?!?
 
-Namespaces
+# Namespaces
 
     Namespaces allow us to segregate resources
 
     List the namespaces on our cluster with one of these commands:
 
-    kubectl get namespaces
+   - kubectl get namespaces
 
     either of these would work as well:
 
-    kubectl get namespace
-    kubectl get ns
+  -  kubectl get namespace
+  -  kubectl get ns
 
 You know what … This kube-system thing looks suspicious.
 Accessing namespaces
@@ -319,83 +318,83 @@ Accessing namespaces
 
     List the pods in the kube-system namespace:
 
-    kubectl -n kube-system get pods
+  -  kubectl -n kube-system get pods
 
     Ding ding ding ding ding!
 
-What are all these pods?
+# What are all these pods?
 
-    etcd is our etcd server
+   - etcd is our etcd server
 
-    kube-apiserver is the API server
+   - kube-apiserver is the API server
 
-    kube-controller-manager and kube-scheduler are other master components
+   - kube-controller-manager and kube-scheduler are other master components
 
-    kube-dns is an additional component (not mandatory but super useful, so it’s there)
+   - kube-dns is an additional component (not mandatory but super useful, so it’s there)
 
-    kube-proxy is the (per-node) component managing port mappings and such
+  - kube-proxy is the (per-node) component managing port mappings and such
 
-    weave is the (per-node) component managing the network overlay
+  - weave is the (per-node) component managing the network overlay
 
-    the READY column indicates the number of containers in each pod
+   - the READY column indicates the number of containers in each pod
 
-    the pods with a name ending with -node1 are the master components (they have been specifically “pinned” to the master node)
+   - the pods with a name ending with -node1 are the master components (they have been specifically “pinned” to the master node)
 
-Running our first containers on Kubernetes
+# Running our first containers on Kubernetes
 
-    First things first: we cannot run a container
+   - First things first: we cannot run a container
 
-    We are going to run a pod, and in that pod there will be a single container
+   - We are going to run a pod, and in that pod there will be a single container
 
-    In that container in the pod, we are going to run a simple ping command
+   - In that container in the pod, we are going to run a simple ping command
 
-    Then we are going to start additional copies of the pod
+   - Then we are going to start additional copies of the pod
 
-Starting a simple pod with kubectl run
+# Starting a simple pod with kubectl run
 
     We need to specify at least a name and the image we want to use
 
     Let’s ping 8.8.8.8, Google’s public DNS
 
-    kubectl run pingpong --image alpine ping 8.8.8.8
+   - kubectl run pingpong --image alpine ping 8.8.8.8
 
     OK, what just happened?
 
-Behind the scenes of kubectl run
+# Behind the scenes of kubectl run
 
     Let’s look at the resources that were created by kubectl run
 
     List most resource types:
 
-    kubectl get all
+  -  kubectl get all
 
 We should see the following things:
 
-    deploy/pingpong (the deployment that we just created)
-    rs/pingpong-xxxx (a replica set created by the deployment)
-    po/pingpong-yyyy (a pod created by the replica set)
+  -  deploy/pingpong (the deployment that we just created)
+  -  rs/pingpong-xxxx (a replica set created by the deployment)
+  -  po/pingpong-yyyy (a pod created by the replica set)
 
-What are these different things?
+# What are these different things?
 
     A deployment is a high-level construct
 
-        allows scaling, rolling updates, rollbacks
+   - allows scaling, rolling updates, rollbacks
 
-        multiple deployments can be used together to implement a canary deployment
+   - multiple deployments can be used together to implement a canary deployment
 
-        delegates pods management to replica sets
+   - delegates pods management to replica sets
 
     A replica set is a low-level construct
 
-        makes sure that a given number of identical pods are running
+   -  makes sure that a given number of identical pods are running
 
-        allows scaling
+   -  allows scaling
 
-        rarely used directly
+   -  rarely used directly
 
     A replication controller is the (deprecated) predecessor of a replica set
 
-Our pingpong deployment
+# Our pingpong deployment
 
     kubectl run created a deployment, deploy/pingpong
 
@@ -405,7 +404,7 @@ Our pingpong deployment
 
     We’ll see later how these folks play together for:
 
-        scaling
+   - scaling
 
         high availability
 
