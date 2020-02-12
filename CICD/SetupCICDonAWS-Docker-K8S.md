@@ -1,4 +1,4 @@
-# This document is built to demonstrate full CI/CD flow on AWS using Opensource application 
+# This document is built to demonstrate full CI/CD flow on AWS using Opensource application on 3 instances [ 2 ec2 AWS Linux (Ansible + Jenkins) & 1 Ubuntu Linux (K8S MAster) ]
 
 Setup Jenkins Server on AWS
 --
@@ -7,7 +7,6 @@ Setup Jenkins Server on AWS
 	• Git Configuration (SCM Repo)
 	• Maven Configuration (Build manager)
 	• Configure SCM pull every minute 
-	• Configure Github
 
 Build WeAPP application  (Java 1.8 + Tomcat) 
 --
