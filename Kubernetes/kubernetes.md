@@ -11,3 +11,8 @@ Understanding how Kubernetes DNS services work
 -- 
 
 https://sysdig.com/blog/understanding-how-kubernetes-services-dns-work/
+
+Using Kubernetes Namespaces to Manage Environments
+--
+
+https://kubernetes.io/blog/2015/08/using-kubernetes-namespaces-to-manage/
