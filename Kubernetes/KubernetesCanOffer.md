@@ -21,26 +21,29 @@ Kubernetes architecture: the master
 
  # The Kubernetes logic (its “brains”) is a collection of services:
    
-    - The API server (our point of entry to everything!)
+   - The API server (our point of entry to everything!)
      
-    - core services like the scheduler and controller manager
+   - core services like the scheduler and controller manager
      
-    - etcd (a highly available key/value store; the “database” of Kubernetes)
+   - etcd (a highly available key/value store; the “database” of Kubernetes)
 
 *Together, these services form what is called the “master”
 
-    These services can run straight on a host, or in containers (that’s an implementation detail)
+   - These services can run straight on a host, or in containers (that’s an implementation detail)
 
-    etcd can be run on separate machines (first schema) or co-located (second schema)
+   - etcd can be run on separate machines (first schema) or co-located (second schema)
 
-    We need at least one master, but we can have more (for high availability)
+   - We need at least one master, but we can have more (for high availability)
 
-Kubernetes architecture: the nodes
+# Kubernetes architecture: the nodes
 
     The nodes executing our containers run another collection of services:
-       * a container Engine (typically Docker)
-       * kubelet (the “node agent”)
-       * kube-proxy (a necessary but not sufficient network component)
+    
+    - a container Engine (typically Docker)
+    
+    - kubelet (the “node agent”)
+    
+    - kube-proxy (a necessary but not sufficient network component)
 
     Nodes were formerly called “minions”
 
