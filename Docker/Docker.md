@@ -6,6 +6,6 @@ In this document you will go through the steps for configuring docker container 
 
  * https://devopscube.com/docker-containers-as-build-slaves-jenkins/
  
-#### Docker Tutorial - How to use Docker Compose U
+#### Docker Tutorial - How to use Docker Compose GUI
 
 * https://www.youtube.com/watch?v=61xvstRcNW4&fbclid=IwAR1No2w_tv5Zbr7mVhAPn_bfkW-HSny0uvddG-3EBNRmESZCUKtcgkek_8E
