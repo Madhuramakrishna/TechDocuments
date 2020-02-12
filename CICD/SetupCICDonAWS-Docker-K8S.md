@@ -1,4 +1,4 @@
-# This document is built to demonstrate full CI/CD flow on AWS using Opensource application on 3 instances [ 2 ec2 AWS Linux (Ansible + Jenkins) & 1 Ubuntu Linux (K8S MAster) ]
+# This document is built to demonstrate full CI/CD flow on AWS using Opensource application on 3 instances [ 2 ec2 AWS Linux (Ansible + Jenkins Servers ) & 1 Ubuntu Linux (K8S Master Server) ]
 
 Setup Jenkins Server on AWS
 --
