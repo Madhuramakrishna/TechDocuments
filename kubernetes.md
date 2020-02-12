@@ -17,21 +17,21 @@ https://sysdig.com/blog/understanding-how-kubernetes-services-dns-work/
 Other things that Kubernetes can do for us
 --
 
-    Basic autoscaling
+    * Basic autoscaling
 
-    Blue/green deployment, canary deployment
+    * Blue/green deployment, canary deployment
 
-    Long running services, but also batch (one-off) jobs
+    * Long running services, but also batch (one-off) jobs
 
-    Overcommit our cluster and evict low-priority jobs
+    * Overcommit our cluster and evict low-priority jobs
 
-    Run services with stateful data (databases etc.)
+    * Run services with stateful data (databases etc.)
 
-    Fine-grained access control defining what can be done by whom on which resources
+    * Fine-grained access control defining what can be done by whom on which resources
 
-    Integrating third party services (service catalog)
+    * Integrating third party services (service catalog)
 
-    Automating complex tasks (operators)
+    * Automating complex tasks (operators)
 
 Kubernetes architecture
 Kubernetes architecture: the master
@@ -52,9 +52,9 @@ Kubernetes architecture: the master
 Kubernetes architecture: the nodes
 
     The nodes executing our containers run another collection of services:
-        a container Engine (typically Docker)
-        kubelet (the “node agent”)
-        kube-proxy (a necessary but not sufficient network component)
+       * a container Engine (typically Docker)
+       * kubelet (the “node agent”)
+       * kube-proxy (a necessary but not sufficient network component)
 
     Nodes were formerly called “minions”
 
@@ -67,11 +67,11 @@ Kubernetes resources
     These resources are organized by type, or Kind (in the API)
 
     A few common resource types are:
-        node (a machine — physical or virtual — in our cluster)
-        pod (group of containers running together on a node)
-        service (stable network endpoint to connect to one or multiple containers)
-        namespace (more-or-less isolated group of things)
-        secret (bundle of sensitive data to be passed to a container)
+        * node (a machine — physical or virtual — in our cluster)
+        * pod (group of containers running together on a node)
+        * service (stable network endpoint to connect to one or multiple containers)
+        * namespace (more-or-less isolated group of things)
+        * secret (bundle of sensitive data to be passed to a container)
 
     And much more! (We can see the full list by running kubectl get)
 
