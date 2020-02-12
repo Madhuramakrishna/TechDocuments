@@ -25,3 +25,7 @@ This document will have links and information related to Jenkins
 #### Jenkins Automated Build Trigger On Github Pull Request
 
 * https://devopscube.com/jenkins-build-trigger-github-pull-request/
+
+#### CI/CD with Jenkins
+
+* https://www.youtube.com/watch?v=KTrQ-YVTTr4&list=PLCRqvOk_BGhVi_mT_urqoJqcndJkf2lDS
