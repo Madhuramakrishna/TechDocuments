@@ -340,7 +340,7 @@ Accessing namespaces
 
    - the pods with a name ending with -node1 are the master components (they have been specifically “pinned” to the master node)
 
-#### Running our first containers on Kubernetes
+# Running our first containers on Kubernetes
 
    - First things first: we cannot run a container
 
@@ -818,11 +818,11 @@ Daemon sets
     Instead of a deployment, we will use a daemonset
 
     Daemon sets are great for cluster-wide, per-node processes:
-        kube-proxy
-        weave (our overlay network)
-        monitoring agents
-        hardware management tools (e.g. SCSI/FC HBA agents)
-        etc.
+   -    kube-proxy
+   -    weave (our overlay network)
+   -    monitoring agents
+   -    hardware management tools (e.g. SCSI/FC HBA agents)
+   -    etc.
 
     They can also be restricted to run only on some nodes.
 
@@ -881,9 +881,9 @@ Try to create our new resource:
     Obviously, it doesn’t make sense to specify a number of replicas for a daemon set
 
     Workaround: fix the YAML
-        remove the replicas field
-        remove the strategy field (which defines the rollout mechanism for a deployment)
-        remove the status: {} line at the end
+   - remove the replicas field
+   - remove the strategy field (which defines the rollout mechanism for a deployment)
+   - remove the status: {} line at the end
 
     Or, we could also …
 
