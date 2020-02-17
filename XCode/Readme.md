@@ -20,6 +20,21 @@ Istio’s architecture is divided into the data plane and the control plane. In 
 Java UUID Generator (JUG) is a Java library for generating Universally Unique IDentifiers, UUIDs (see http://en.wikipedia.org/wiki/UUID). It can be used either as a component in a bigger application, or as a standalone command line tool.
 
 
+## Monix
+Asynchronous Programming for Scala and Scala.js
+
+Monix is a high-performance Scala / Scala.js library for composing asynchronous, event-based programs.
+
+It started as a proper implementation of ReactiveX, with stronger functional programming influences and designed from the ground up for back-pressure and made to cleanly interact with Scala’s standard library, compatible out-of-the-box with the Reactive Streams protocol. It then expanded to include abstractions for suspending side effects and for resource handling, being one of the parents and implementors of cats-effect.
+
+A Typelevel project, Monix proudly exemplifies pure, typeful, functional programming in Scala, while making no compromise on performance.
+
+Highlights:
+
+   - exposes the kick-ass Observable, Iterant, Task and Coeval data types, along with all the support they need
+   - modular, only use what you need
+   - designed for true asynchronicity, running on both the JVM and Scala.js
+   - really good test coverage, code quality and API documentation as a primary project policy
 
 
 
