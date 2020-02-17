@@ -37,5 +37,9 @@ Highlights:
    - really good test coverage, code quality and API documentation as a primary project policy
 
 
+## better-files
+
+better-files is a dependency-free pragmatic thin Scala wrapper around Java NIO. It is an alternative to the IO interface present in the Scala standard library and defines idiomatic helpers to handle IO in a sane and elegant way.
+
 
 [df1]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
