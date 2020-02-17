@@ -1,4 +1,4 @@
-# This is xCode documentation is to understand TechStacks
+# This documentation lists TechStacks used often in building highly scalable applications
 
 ## Jaeger
 
