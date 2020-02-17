@@ -92,5 +92,12 @@ A library that provides an in-memory Kafka instance to run your tests against.
 
 Akka HTTP’s marshalling and unmarshalling infrastructure makes it rather easy to seamlessly convert application-domain objects from and to JSON. 
 
+## RocksDB 
+
+RocksDB is an embeddable persistent key-value store for fast storage. RocksDB can also be the foundation for a client-server database but our current focus is on embedded workloads.
+
+#### RocksDB JNI
+RocksDB JNI gives you a Java interface to the RocksDB C++ library which is an embeddable persistent key-value store for fast storage.
+
 [istio]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
 [cloudhopper-smpp]: <https://github.com/fizzed/cloudhopper-smpp>
