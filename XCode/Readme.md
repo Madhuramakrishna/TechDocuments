@@ -13,7 +13,7 @@ Jaeger, inspired by Dapper and OpenZipkin, is a distributed tracing system relea
 ##  Istio  
 Istio is an open source service mesh platform that provides a way to control how microservices share data with one another. It includes APIs that let Istio integrate into any logging platform, telemetry, or policy system. Istio is designed to run in a variety of environments: on-premise, cloud-hosted, in Kubernetes containers, in services running on virtual machines, and more.
 
-Istio’s architecture is divided into the data plane and the control plane. In the data plane, Istio support is added to a service by deploying a sidecar proxy within your environment. This sidecar proxy sits alongside a microservice and routes requests to and from other proxies. Together, these proxies form a mesh network that intercepts network communication between microservices. The control plane manages and configures proxies to route traffic. The control plane also configures components to enforce policies and collect telemetry. [ReadMore][df1] 
+Istio’s architecture is divided into the data plane and the control plane. In the data plane, Istio support is added to a service by deploying a sidecar proxy within your environment. This sidecar proxy sits alongside a microservice and routes requests to and from other proxies. Together, these proxies form a mesh network that intercepts network communication between microservices. The control plane manages and configures proxies to route traffic. The control plane also configures components to enforce policies and collect telemetry. [ReadMore][istio] 
 
 ## Java UUID Generator (JUG)
 
@@ -45,10 +45,32 @@ better-files is a dependency-free pragmatic thin Scala wrapper around Java NIO. 
 Quicklens is a small library which allows to modify deeply nested fields in case classes e.g.: modify(person)(_.address.street.name). using(_. toUpperCase) , without the need to create dedicated lens objects
 
 
+## chopsticks
+
+chopsticks is an essential collection of Scala libraries for everyday use. It's designed specifically to build high performance, production-grade functional reactive stream systems.
+
+## Caffeine
+
+Caffeine is an awesome Java caching library. It has an impressive performance and a neat Java 8 API. ... So this is the thinner wrapper we can came with to make Caffeine easy and idiomatic to use in Scala.
 
 
+## PureConfig 
+
+PureConfig is a nifty library that serves as a front-end for other libraries. ... PureConfig is not a configuration library. It can be seen as a better front-end for existing libraries. It uses the Typesafe Config library for loading raw configurations and then uses the raw configurations to do its magic.
+
+## Enumeratum 
+
+Enumeratum is a type-safe and powerful enumeration implementation for Scala that offers exhaustive pattern match warnings, integrations with popular Scala libraries, and idiomatic usage that won't break your IDE.
+
+## Jsoniter Scala. 
+
+Scala macros that generate codecs for case classes, standard types, and collections to get maximum performance of JSON parsing and serialization.
+
+## Cloudhopper SMPP
+
+Efficient, scalable, rock-solid, and flexible Java implementation of the Short Messaging Peer to Peer Protocol (SMPP).
+Twitter exclusively relies on this library for its global SMS infrastructure.  [ReadMore][cloudhopper-smpp] 
 
 
-
-
-[df1]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
+[istio]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
+[cloudhopper-smpp]: <https://github.com/fizzed/cloudhopper-smpp>
