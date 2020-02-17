@@ -75,5 +75,15 @@ Twitter exclusively relies on this library for its global SMS infrastructure.  [
 
 Netty is a NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server.
 
+## Avro4s
+
+Avro4s is a schema/class generation and serializing/deserializing library for Avro written in Scala. The objective is to allow seamless use with Scala without the need to to write boilerplate conversions yourself, and without the runtime overhead of reflection. Hence, this is a macro based library and generates code for use with Avro at compile time.
+
+The features of the library are:
+-  Schema generation from classes at compile time
+-  Boilerplate free serialization of Scala types into Avro types
+-  Boilerplate free deserialization of Avro types to Scala types
+
+
 [istio]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
 [cloudhopper-smpp]: <https://github.com/fizzed/cloudhopper-smpp>
