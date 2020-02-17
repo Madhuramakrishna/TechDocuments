@@ -36,6 +36,19 @@ Highlights:
    - designed for true asynchronicity, running on both the JVM and Scala.js
    - really good test coverage, code quality and API documentation as a primary project policy
 
+## refined: simple refinement types for Scala. 
+
+refined is a Scala library for refining types with type-level predicates which constrain the set of values described by the refined type. It started as a port of the refined Haskell library (which also provides an excellent motivation why this kind of library is useful).
+
+## Janino 
+
+Janino is a super-small, super-fast Java compiler. Janino can not only compile a set of source files to a set of class files like JAVAC, but also compile a Java expression, a block, a class body, one .java file or a set of .java files in memory, load the bytecode and execute it directly in the same JVM.
+
+JANINO is integrated with Apache Commons JCI ("Java Compiler Interface") and JBoss Rules / Drools.
+JANINO can also be used for static code analysis or code manipulation. 
+
+## nameOf macro for scala
+nameOf macro for scala is used  to obtain the simple (unqualified) string name of a variable, type, or member. When reporting errors in code, hooking up model-view-controller (MVC) links, firing property changed events, etc., you often want to capture the string name of a method.
 
 ## better-files
 
