@@ -41,5 +41,14 @@ Highlights:
 
 better-files is a dependency-free pragmatic thin Scala wrapper around Java NIO. It is an alternative to the IO interface present in the Scala standard library and defines idiomatic helpers to handle IO in a sane and elegant way.
 
+## Quicklens
+Quicklens is a small library which allows to modify deeply nested fields in case classes e.g.: modify(person)(_.address.street.name). using(_. toUpperCase) , without the need to create dedicated lens objects
+
+
+
+
+
+
+
 
 [df1]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
