@@ -97,7 +97,21 @@ Akka HTTP’s marshalling and unmarshalling infrastructure makes it rather easy 
 RocksDB is an embeddable persistent key-value store for fast storage. RocksDB can also be the foundation for a client-server database but our current focus is on embedded workloads.
 
 #### RocksDB JNI
+
 RocksDB JNI gives you a Java interface to the RocksDB C++ library which is an embeddable persistent key-value store for fast storage.
+
+## MetalLB
+
+MetalLB is a load-balancer implementation for bare metal Kubernetes clusters, using standard routing protocols.
+
+## Calico
+
+Calico is an open source networking and network security solution for containers, virtual machines, and native host-based workloads. Calico supports a broad range of platforms including Kubernetes, OpenShift, Docker EE, OpenStack, and bare metal services.
+
+Calico combines flexible networking capabilities with run-anywhere security enforcement to provide a solution with native Linux kernel performance and true cloud-native scalability. Calico provides developers and cluster operators with a consistent experience and set of capabilities whether running in public cloud or on-prem, on a single node or across a multi-thousand node cluster. [ReadMore][Calico] 
+
+
 
 [istio]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
 [cloudhopper-smpp]: <https://github.com/fizzed/cloudhopper-smpp>
+[Calico]: <https://docs.projectcalico.org/introduction/>
