@@ -84,6 +84,13 @@ The features of the library are:
 -  Boilerplate free serialization of Scala types into Avro types
 -  Boilerplate free deserialization of Avro types to Scala types
 
+## embedded-kafka
+
+A library that provides an in-memory Kafka instance to run your tests against.
+
+## akka-http-json
+
+Akka HTTP’s marshalling and unmarshalling infrastructure makes it rather easy to seamlessly convert application-domain objects from and to JSON. 
 
 [istio]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
 [cloudhopper-smpp]: <https://github.com/fizzed/cloudhopper-smpp>
