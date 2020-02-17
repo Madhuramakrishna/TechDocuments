@@ -71,6 +71,9 @@ Scala macros that generate codecs for case classes, standard types, and collecti
 Efficient, scalable, rock-solid, and flexible Java implementation of the Short Messaging Peer to Peer Protocol (SMPP).
 Twitter exclusively relies on this library for its global SMS infrastructure.  [ReadMore][cloudhopper-smpp] 
 
+## Netty 
+
+Netty is a NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server.
 
 [istio]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
 [cloudhopper-smpp]: <https://github.com/fizzed/cloudhopper-smpp>
