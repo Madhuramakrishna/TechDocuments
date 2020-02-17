@@ -1,4 +1,4 @@
-# This documentation lists TechStacks used often in building highly scalable applications
+# This documentation lists TechStacks used in building highly scalable applications
 
 ## Jaeger
 
