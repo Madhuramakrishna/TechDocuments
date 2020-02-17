@@ -134,6 +134,26 @@ Strimzi provides a way to run an Apache Kafka cluster on Kubernetes in various d
 
 sbt (Scala Build tool) is an open-source build tool for Scala and Java projects, similar to Java's Maven and Ant. Its main features are: Native support for compiling Scala code and integrating with many Scala test frameworks. Continuous compilation, testing, and deployment.
 
+##  Alpakka Kafka 
+
+Alpakka Kafka  connector lets you connect Apache Kafka to Akka Streams. It was formerly known as Akka Streams Kafka and even Reactive Kafka.
+
+## Akka
+
+Akka is a free and open-source toolkit and runtime simplifying the construction of concurrent and distributed applications on the JVM. Akka supports multiple programming models for concurrency, but it emphasizes actor-based concurrency, with inspiration drawn from Erlang.
+
+Language bindings exist for both Java and Scala. Akka is written in Scala and, as of Scala 2.10, the actors in the Scala standard library are deprecated in favor of Akka.
+
+## Scala 
+
+Scala combines object-oriented and functional programming in one concise, high-level language. Scala's static types help avoid bugs in complex applications, and its JVM and JavaScript runtimes let you build high-performance systems with easy access to huge ecosystems of libraries.
+
+## Ceph 
+
+Ceph is a free-software storage platform, implements object storage on a single distributed computer cluster, and provides interfaces for object-, block- and file-level storage. Ceph aims primarily for completely distributed operation without a single point of failure, scalable to the exabyte level, and freely available.
+
+Ceph replicates data and makes it fault-tolerant,using commodity hardware and requiring no specific hardware support. As a result of its design, the system is both self-healing and self-managing, aiming to minimize administration time and other costs. 
+
 [istio]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
 [cloudhopper-smpp]: <https://github.com/fizzed/cloudhopper-smpp>
 [Calico]: <https://docs.projectcalico.org/introduction/>
