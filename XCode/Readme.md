@@ -122,6 +122,17 @@ An open-source monitoring system with a dimensional data model, flexible query l
 
 Prometheus Operator creates/configures/manages Prometheus clusters atop Kubernetes - coreos/prometheus-operator.
 
+## Confluent Kafka 
+
+Confluent Kafka is a fully managed Kafka service and enterprise stream processing platform. Real-time data streaming for AWS, GCP, Azure or serverless
+
+## Strimzi Kafka Operator
+
+Strimzi provides a way to run an Apache Kafka cluster on Kubernetes in various deployment configurations.
+
+## Sbt 
+
+sbt (Scala Build tool) is an open-source build tool for Scala and Java projects, similar to Java's Maven and Ant. Its main features are: Native support for compiling Scala code and integrating with many Scala test frameworks. Continuous compilation, testing, and deployment.
 
 [istio]: <https://www.redhat.com/en/topics/microservices/what-is-istio>
 [cloudhopper-smpp]: <https://github.com/fizzed/cloudhopper-smpp>
