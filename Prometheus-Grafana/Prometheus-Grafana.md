@@ -12,3 +12,4 @@ using Kubernetes service discovery configurations.
 Grafana setup on a Kubernetes cluster. You can create dashboards on Grafana for all the Kubernetes metrics through prometheus
 
 * https://devopscube.com/setup-grafana-kubernetes/
+*
