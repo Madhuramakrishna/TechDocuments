@@ -16,3 +16,15 @@ Using Kubernetes Namespaces to Manage Environments
 --
 
 https://kubernetes.io/blog/2015/08/using-kubernetes-namespaces-to-manage/
+
+Kubernetes Cluster Hardware Recommendations 
+--
+
+https://docs.kublr.com/installation/hardware-recommendation/
+
+
+Fighting Service Latency in Microservices With Kubernetes
+--
+
+https://link.medium.com/AWTtyp8va4
+
