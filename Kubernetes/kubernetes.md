@@ -28,3 +28,8 @@ Fighting Service Latency in Microservices With Kubernetes
 
 https://link.medium.com/AWTtyp8va4
 
+
+Tips for Running Containers and Kubernetes on AWS
+--
+
+https://medium.com/@mmdigitalmarketing5/tips-for-running-containers-and-kubernetes-on-aws-370e95a4c599
